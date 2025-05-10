@@ -1,0 +1,41 @@
+{
+  "name": "task-manager-api",
+  "version": "1.0.0",
+  "description": "To implement REST API (CRUD)",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node-dev --respawn src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "engines": {
+    "node": ">=20.12.1",
+    "npm": ">=10.5.0"
+  },
+  "engineStrict": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/godabavinay/Task-Manager-API.git"
+  },
+  "keywords": [
+    "REST-API"
+  ],
+  "author": "Vinay Godaba",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/godabavinay/Task-Manager-API/issues"
+  },
+  "homepage": "https://github.com/godabavinay/Task-Manager-API#readme",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "pg": "^8.15.6"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.15.17",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.8.3"
+  }
+}
