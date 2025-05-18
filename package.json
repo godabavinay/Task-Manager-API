@@ -7,7 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "ts-node-dev --respawn src/server.ts",
     "build": "tsc",
-    "start": "node dist/server.js"
+    "start": "node dist/server.js",
+    "k6:build": "tsc --project tests/loadTests/tsconfig.json",
+    "k6:test": "concurrently \"npm run dev\" \"wait-on --timeout 30000 --retry 5 http://localhost:3000 && npm run k6:build && k6 run tests/loadTests/dist/index.js\""
   },
   "engines": {
     "node": ">=20.12.1",
@@ -37,7 +39,9 @@
     "@types/express": "^5.0.1",
     "@types/node": "^22.15.17",
     "@types/uuid": "^10.0.0",
+    "concurrently": "^9.1.2",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "wait-on": "^8.0.3"
   }
 }
