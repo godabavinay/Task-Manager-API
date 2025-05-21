@@ -2,7 +2,11 @@ import { Request, Response } from "express";
 import { Task } from "../models/task";
 import { v4 as uuidv4 } from 'uuid';
 
-const tasks: Task[] = [];
+let tasks: Task[] = [];
+
+export const resetTasks = () => {
+    tasks = [];
+}
 
 export const listTasks = (req: Request, res: Response) => {
     res.status(200).json(tasks);
@@ -16,7 +20,7 @@ export const getTask = (req: Request, res: Response) => {
         return;
     }
 
-    res.json(task);
+    res.status(200).json(task);
 }
 
 export const createTask = (req: Request, res: Response) => {
@@ -50,7 +54,7 @@ export const updateTask = (req: Request, res: Response) => {
     if (title !== undefined) task.title = title;
     if (completed !== undefined) task.completed = completed;
 
-    res.json(task);
+    res.sendStatus(204);
 }
 
 export const deleteTask = (req: Request, res: Response) => {
@@ -63,5 +67,5 @@ export const deleteTask = (req: Request, res: Response) => {
 
     tasks.splice(taskIndex, 1);
 
-    res.status(204).send();
+    res.sendStatus(204);
 }
