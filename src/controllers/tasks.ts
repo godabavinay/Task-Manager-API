@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 const tasks: Task[] = [];
 
 export const listTasks = (req: Request, res: Response) => {
-    res.json(tasks);
+    res.status(200).json(tasks);
 }
 
 export const getTask = (req: Request, res: Response) => {
