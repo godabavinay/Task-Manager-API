@@ -79,3 +79,9 @@ The following scripts are available in the `package.json` file:
   ```bash
   npm run k6:test
   ```
+
+- **`test`**: Runs the unit tests using Vitest.
+
+  ```bash
+  npm run test
+  ```
