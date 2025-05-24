@@ -74,14 +74,38 @@ The following scripts are available in the `package.json` file:
   npm run k6:build
   ```
 
-- **`k6:test`**: Runs the load tests using `k6`. This script starts the development server, waits for it to be ready, builds the load test files, and then executes the tests.
+- **`load:test`**: Runs load tests using `k6`. This script starts the development server, waits for it to be ready, builds the load test files, and then executes the tests.
 
   ```bash
-  npm run k6:test
+  npm run load:test
   ```
 
-- **`test`**: Runs the unit tests using Vitest.
+- **`test`**: Runs both unit and integration tests, as well as generates a coverage report using Vitest.
 
   ```bash
   npm run test
+  ```
+
+- **`test:unit`**: Runs unit tests using Vitest for files in the `src` directory.
+
+  ```bash
+  npm run test:unit
+  ```
+
+- **`test:integration`**: Runs integration tests using Vitest for files in the `tests/integration` directory.
+
+  ```bash
+  npm run test:integration
+  ```
+
+- **`test:coverage`**: Runs tests and generates a coverage report using Vitest.
+
+  ```bash
+  npm run test:coverage
+  ```
+
+- **`test:ui`**: Runs both unit and integration tests with a UI interface using Vitest.
+
+  ```bash
+  npm run test:ui
   ```
