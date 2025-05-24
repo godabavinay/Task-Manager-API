@@ -1,8 +1,13 @@
 import request from 'supertest';
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
 import app from '../../src/app';
+import { resetTasks } from '../../src/controllers/tasks';
 
 describe('Task API Integration', () => {
+    beforeEach(() => {
+        resetTasks();
+    });
+
     it('should create a task', async () => {
         const response = await request(app).post('/tasks').send({
             title: 'Test Task',
