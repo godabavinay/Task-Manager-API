@@ -74,10 +74,15 @@ The following scripts are available in the `package.json` file:
   npm run k6:build
   ```
 
-- **`load:test`**: Runs load tests using `k6`. This script starts the development server, waits for it to be ready, builds the load test files, and then executes the tests.
+- **`test:load`**: Runs load tests using `k6`. This script starts the development server, waits for it to be ready, builds the load test files, and then executes the specified k6 test file (default is `index.js`).
+  You can specify a different file by setting the `FILE` environment variable.
 
   ```bash
-  npm run load:test
+  # Run the default load test (index.js)
+  npm run test:load
+
+  # Run a specific load test file (e.g., tasks.js)
+  FILE=tasks.js npm run test:load
   ```
 
 - **`test`**: Runs both unit and integration tests, as well as generates a coverage report using Vitest.
