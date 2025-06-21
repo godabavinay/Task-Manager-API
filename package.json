@@ -13,7 +13,7 @@
     "build": "tsc",
     "start": "node dist/server.js",
     "k6:build": "tsc --project tests/loadTests/tsconfig.json",
-    "load:test": "concurrently \"npm run dev\" \"wait-on --timeout 30000 --retry 5 http://localhost:3000 && npm run k6:build && k6 run tests/loadTests/dist/index.js\""
+    "test:load": "FILE=${FILE:-index.js} && concurrently \"npm run dev\" \"wait-on --timeout 30000 --retry 5 http://localhost:3000 && npm run k6:build && k6 run tests/loadTests/dist/$FILE\""
   },
   "engines": {
     "node": ">=20.12.1",
